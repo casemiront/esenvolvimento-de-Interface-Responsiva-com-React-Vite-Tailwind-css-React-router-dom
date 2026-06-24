@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F5F0E8;
+  color: #1A1410;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Library card texture effect */
+.card-texture {
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 27px,
+      rgba(139, 105, 20, 0.08) 27px,
+      rgba(139, 105, 20, 0.08) 28px
+    );
+}
+
+/* Stamp effect */
+.stamp {
+  border: 3px solid #C1440E;
+  border-radius: 4px;
+  transform: rotate(-2deg);
+  position: relative;
+}
+
+.stamp::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid #C1440E;
+  border-radius: 2px;
+}
+
+/* Aged paper effect for cards */
+.book-card {
+  background: #FAF7F0;
+  border: 1px solid #D4C5A9;
+  box-shadow: 2px 3px 8px rgba(26, 20, 16, 0.12), 
+              inset 0 0 40px rgba(212, 197, 169, 0.2);
+  position: relative;
+}
+
+.book-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, transparent 50%, #D4C5A9 50%);
+}
+
+/* Divider line */
+.ruled-line {
+  border: none;
+  border-top: 1px solid #D4C5A9;
+  margin: 0;
+}
+
+/* Ink underline style */
+.ink-underline {
+  text-decoration: underline;
+  text-decoration-color: #C1440E;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Sidebar nav */
+.nav-link {
+  position: relative;
+  transition: color 0.2s;
+}
+
+.nav-link::before {
+  content: '›';
+  position: absolute;
+  left: -16px;
+  opacity: 0;
+  transition: opacity 0.2s, left 0.2s;
+  color: #C1440E;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  opacity: 1;
+  left: -14px;
+}
+
+/* Input library style */
+.lib-input {
+  background: #FAF7F0;
+  border: 1px solid #D4C5A9;
+  border-bottom: 2px solid #8B6914;
+  padding: 8px 12px;
+  font-family: 'Courier Prime', monospace;
+  color: #1A1410;
+  width: 100%;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.lib-input:focus {
+  border-bottom-color: #C1440E;
+}
+
+/* Badge styles */
+.badge-rent {
+  background: #5C3D2E;
+  color: #F5F0E8;
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 2px 8px;
+  text-transform: uppercase;
+}
+
+.badge-sale {
+  background: #C1440E;
+  color: #F5F0E8;
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 2px 8px;
+  text-transform: uppercase;
+}
+
+.badge-reserved {
+  background: #8B6914;
+  color: #F5F0E8;
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 2px 8px;
+  text-transform: uppercase;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F0E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4C5A9;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8B6914;
+}
